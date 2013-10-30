@@ -1,0 +1,28 @@
+# Example subroutine
+
+# The equipment serial number (ESN) must be converted from manufacturer
+# decimal format to hexadecimal format.
+sub convertEsn {
+        #print "inside convertEsn\n" if ($debug);
+        my ( $self, $esn ) = @_;
+        my $result;
+
+        # convert decimal to hex
+        if ( $esn =~ m/^m/ ) {
+                my ($var1,$var2,$var3) = unpack("a1a3a8",$esn);
+                $result = sprintf("h%02X%06X", $var2, $var3);
+        } elsif ( $esn =~ m/^d/ ) {
+                my ($var1,$var2) = unpack("a1a10",$esn);
+                $result = sprintf("h%08x", $var2);
+        } elsif ( $esn =~ m/^o/ ) {
+                my ($var1,$var2,$var3) = unpack("a1a3a8",$esn);
+                $result = sprintf("h%02X%06X", $var2, $var3);
+        } elsif ( $esn =~ m/^h/ ) {
+                my ($var1) = unpack("a9",$esn);
+                $result = $var1;
+        }
+
+        $result =~ tr/A-Z/a-z/;
+
+        return $result;
+}
