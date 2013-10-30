@@ -1,0 +1,26 @@
+# sftpFileFromLocalToRemote
+# uses http://search.cpan.org/~salva/Net-SFTP-Foreign-1.67/lib/Net/SFTP/Foreign.pm
+sub sftpFileFromLocalToRemote {
+        my ( $self, $user, $password, $hostname, $localFile, $remoteFile ) = @_;
+print "\n\nsftp: $user,$password,$hostname,$localFile,$remoteFile\n\n";
+
+# these should be removed and added to top of S2B.pm once local perl module
+# repository is sorted out.
+
+        my %args = (
+                user => $user,
+                password => $password,
+                more =>  '-v'
+        );
+#
+#       # Make connection
+        my $sftp = Net::SFTP::Foreign->new($hostname, %args) ;
+# TODO
+# change to correct destination directory when in production
+        $sftp->setcwd("/tmp/remote/incoming");
+        $sftp->put("$localFile","$remoteFile");
+        # close the connection,
+        undef $sftp;
+
+        return;
+}
