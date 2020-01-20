@@ -1,0 +1,12 @@
+---
+# file roles/common/main.yml
+#
+# - If nothing notifies a handler, it will not run. 
+# - Regardless of how many tasks notify a handler, it will run only once,
+#   after all of the tasks complete in a particular play.
+  - name: start docker
+    service:
+      name: docker
+      enabled: yes
+      state: started
+    become: yes

@@ -1,0 +1,129 @@
+---
+# minikube.yml
+# ansible-playbook -v ubuntu-minikube.yml --ask-become-pass
+- hosts: localhost 
+  roles:
+    - common
+  connection: local
+  become: no
+  gather_facts: yes
+
+  tasks:
+  - name: trigger stop related processes
+    service:
+      name: docker
+      enabled: no
+      state: stopped
+    become: yes
+
+  - name: make sure minikube is not running
+    command: minikube {{ item.args }}
+    with_items:
+      - { args: 'stop' }
+      - { args: 'delete' }
+    ignore_errors: yes
+
+  - name: remove files
+    file: 
+      path: "{{ item.filename }}"
+      state: absent
+    with_items:
+  #    - { filename: '/home/phil/Downloads/minikube' }
+      - { filename: '/usr/local/bin/minikube' }
+  #    - { filename: '/home/phil/Downloads/kubectl' }
+      - { filename: '/usr/bin/kubectl' }
+    become: yes
+
+  - name: remove a list of packages
+    apt:
+      name: "{{ packages }}"
+      state:  absent
+    vars:
+      packages:
+      - docker.io
+      - kubectl
+      - virtualbox
+      - virtualbox-ext-pack
+    become: yes
+
+  - name: add apt signing key
+    apt_key:
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      state: present  
+    become: yes
+
+  - name: upgrade all packages to latest version
+    apt:
+      upgrade: dist
+    become: yes
+
+  - name: remove useless packages from cache
+    apt:
+      autoclean: yes
+    become: yes
+
+  - name: remove dependencies that are no longer reqd
+    apt:
+      autoremove: yes
+    become: yes
+
+  - name: Add a line to a file if the file does not exist, without passing regexp
+    lineinfile:
+      path: /etc/apt/sources.list.d/kubernetes.list 
+      line: deb http://apt.kubernetes.io/ kubernetes-xenial main
+      create: yes
+
+  - name: install a list of packages
+    apt:
+      name: "{{ packages }}"
+      state: latest
+    vars:
+      packages:
+      - apt-transport-https
+      - curl
+      - docker.io
+      - kubectl
+      - net-tools
+      - virtualbox
+      - virtualbox-ext-pack
+    become: yes
+
+  - name: apt-getupdate
+    apt:
+      update_cache: yes
+    become: yes
+    
+  - name:  download minikube
+    get_url: url={{ item.url }} dest={{ item.dest }} 
+    with_items:
+      - { url: 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64', dest: '/home/phil/Downloads/minikube' }
+#      - { url: 'https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl', dest: '/home/phil/Downloads/kubectl' }
+     
+  - name: change file permission
+    file: dest={{ item.dest }} mode={{ item.mode }}
+    with_items:
+      - { dest: '/home/phil/Downloads/minikube', mode: 'a+x' }
+     
+  - name: move files
+    command: mv {{ item.src }} {{ item.dest }}
+    with_items:
+      - { src: '/home/phil/Downloads/minikube', dest: '/usr/local/bin/minikube' }
+    become: yes
+     
+  - name: exercise minikube
+    command: "{{ item.args }}"
+    with_items:
+      - { args: 'minikube version' }
+      - { args: 'minikube start' }
+      - { args: 'minikube status' }
+      - { args: 'kubectl  cluster-info' }
+      - { args: 'kubectl get nodes' }
+#      - { args: ' addons list' }
+#      - { args: 'dashboard' }
+#      - { args: 'stop' }
+#      - { args: 'delete' }
+
+  - name: trigger start
+    command: /bin/true
+    notify:
+    - start docker
