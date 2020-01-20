@@ -1,0 +1,24 @@
+#!/usr/bin/expect  --
+
+log_file /tmp/imap.log
+
+set timeout 30
+
+spawn openssl s_client -crlf -connect imap.gmail.com:993
+
+expect "OK Gimap ready" { send "a login foo@gmail.com password\r" }
+
+expect "OK foo@gmail.com" { send "a SELECT INBOX\r" }
+
+expect -re "OK .READ-WRITE. INBOX" { send "a IDLE\r" }
+
+#initeract
+set timeout 1500
+while true {
+  expect timeout {
+    send "DONE\r"
+    expect -re "OK IDLE terminated"
+    send "a IDLE\r"
+    expect -re "OK .READ-WRITE. INBOX"
+  }
+}
