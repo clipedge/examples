@@ -1,7 +1,0 @@
-# example subroutine to test if executing as root user
-sub isRootUser {
-        print "inside isRootUser\n" if ($debug);
-        my ( $self ) = @_;
-
-        return ( getpwuid( $< ) =~ m/root/ );
-}
