@@ -1,0 +1,6 @@
+# example subroutine to create random 8 digit alphanumeric key
+sub getRandomString {
+        my ( $self ) = @_;
+
+        return join'', map +(0..9,'a'..'z','A'..'Z')[rand(10+26*2)], 1..8;
+}

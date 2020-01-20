@@ -1,0 +1,30 @@
+example subroutine to retrieve file(s) using scp
+
+# getFileUsingScp
+# requires shared authorized_keys, but does not require any additional perl
+# modules
+# FUTURE: uncomment Net::SCP section below
+sub getFileFromUsingScp {
+        my ( $self, $user, $hostname, $remoteFile, $localFile ) = @_;
+        print "inside getFileFromOmp\n" if ($debug);
+
+        my @args = ("/usr/bin/scp","$user\@$hostname:$remoteFile", "$localFile");
+        system(@args) == 0 or print "SCP FAILED system @args failed: $?\n";
+
+        #The failure possibilities can be found by inspecting $? like this:
+        my $exit_value = $? >> 8;
+        my $signal_num = $? & 127;
+        my $dumped_core = $? & 128;
+
+        # if cmd fails return the exitcode, otherwise return success (0)
+        return ($exit_value == 0 ? 0 : $exit_value);
+
+        # once Net::SCP perl module is available the above code can be
+        # replaced with the following code to perform the download.
+
+        # use Net::SCP;
+        # Make connection
+        #$scp = Net::SCP->new("$hostname", "$user") or die $scp->{errstr};
+        #$scp->get("$remoteFile","$localfile") or die $scp->{errstr};
+        #$scp->quit or die $scp->{errstr};
+}
