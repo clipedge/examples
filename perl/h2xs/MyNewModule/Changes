@@ -1,0 +1,6 @@
+Revision history for Perl extension MyNewModule.
+
+0.01  Sun Oct  6 16:11:28 2013
+	- original version; created by h2xs 1.23 with options
+		h2xs -AXc -n MyNewModule
+
