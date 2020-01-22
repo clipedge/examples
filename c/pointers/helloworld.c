@@ -1,5 +1,6 @@
 #include <stdio.h> 
 #include <string.h> 
+#include <hellomake.h>
 
 // cc helloworld.c -o helloworld
 
@@ -9,6 +10,8 @@ void main() {
 
  // assign 10 to x
  x = 65;
+
+	myPrint();
 
  printf("%-10s%-16s%-16s%-5s\n", "Variable", "Address", "Value", "Length");
 
