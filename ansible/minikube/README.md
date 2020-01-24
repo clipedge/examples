@@ -1,3 +1,8 @@
+# readme
+
+## docker
+
+```
 phil@laptop:~/ansible/minikube$ sudo docker build github.com/clipedge/ansible.git#:minikube -t clipedge/hello:0.0
 Sending build context to Docker daemon  6.656kB
 Step 1/4 : FROM node:6.14.2
@@ -17,4 +22,5 @@ phil@laptop:~/ansible/minikube$ sudo docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 clipedge/hello      0.0                 cd9b87e2318f        12 minutes ago      660MB
 node                6.14.2              00165cd5d0c0        17 months ago       660MB
+```
 
