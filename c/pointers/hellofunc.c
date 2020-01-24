@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <hellomake.h>
+#include <helloworld/sample.h>
 
 void myPrint(void) {
 
