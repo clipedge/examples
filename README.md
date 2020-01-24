@@ -1,1 +1,1 @@
-# Clipedge Technology
+# ClipEdge Technology
