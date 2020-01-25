@@ -81,7 +81,12 @@ int ex00(void) {
 
 int ex01(void) {
 
-	int foo, *bar;
+	int a, b, foo, *bar;
+
+	a = 10;
+	b = 20;
+
+	printf("a + b = %d\n", add(a,b));
 
 	// assign value of 42 to variable foo
 	foo = 42;
@@ -114,8 +119,6 @@ int ex01(void) {
 int main() {
 
 	int rc = 0;
-
-	myPrint();
 
 	rc = ex00();
 	rc = ex01();

@@ -1,6 +1,6 @@
 #ifndef _HELLOWORLD_SAMPLE_H
 #define _HELLOWORLD_SAMPLE_H
 
-void myPrint(void);
+int add(int, int);
 
 #endif /* _HELLOWORLD_SAMPLE_H */

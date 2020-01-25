@@ -25,7 +25,7 @@ LIBS=-lm
 _DEPS = helloworld/sample.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ=helloworld.o hellofunc.o
+_OBJ=helloworld.o helloworld_functions.o
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.c $(DEPS)
