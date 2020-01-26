@@ -1,29 +1,25 @@
 # Makefile
-# cc demo.c -o demo -lncurses
+# cc demo.c -o demo game -lncurses
 
-#IDIR=include
+IDIR=include
 CC=cc
-#CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR)
 
 ODIR=obj
 #LDIR=lib
 
 LIBS=-lncurses
 
-#_DEPS = helloworld/sample.h
-#DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+_DEPS = clipedge/game.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ=demo.o
+_OBJ+=game.o
+
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 
-#$(ODIR)/%.o: %.c $(DEPS)
-#        $(CC) -c -o $@ $< $(CFLAGS)
-
-#demo: $(OBJ)
-#        $(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-$(ODIR)/%.o: %.c
-	$(CC) -c -o $@ $< $(LIBS)
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS) $(LIBS)
 
 demo: $(OBJ)
 	$(CC) -o $@ $^ $(LIBS)
