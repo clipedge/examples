@@ -21,7 +21,8 @@ int main() {
 
 	endwin();
 
-	printf("Keypress = %d\n", ch);
+	// use this to find a key code without a manual
+	printf("Keycode = %d\n", ch);
 
         int a = 10;
         int b = 20;
