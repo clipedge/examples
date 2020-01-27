@@ -14,7 +14,7 @@ int main() {
 
 	clear();
 
-	printw("Hello World!");
+	printw("Use this to find a key code without a manual.  Press 'q' to quit.");
 	refresh();
 
 	do {
@@ -36,6 +36,7 @@ int main() {
 
 	endwin();
 
+	// sample include custom header
         int a = 10;
         int b = 20;
 
