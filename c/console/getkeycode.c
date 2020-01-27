@@ -17,12 +17,24 @@ int main() {
 	printw("Hello World!");
 	refresh();
 
-	ch = getch();
+	do {
+
+		// wait for a key press
+		ch = getch();
+
+		clear();
+
+		// use this to find a key code without a manual
+		printw("Keycode = %d", ch);
+
+		refresh();
+
+		printf("Keycode = %d\n", ch);
+
+	}
+	while (( ch != 'q' && ch != 'Q' ));
 
 	endwin();
-
-	// use this to find a key code without a manual
-	printf("Keycode = %d\n", ch);
 
         int a = 10;
         int b = 20;
