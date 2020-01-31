@@ -1,6 +1,6 @@
 # Examples
 
-A place to start consolidating code i have written/collected. This is a work in progress.
+A place to consolidate code i have written/collected.
 
 * ansible
 * c
