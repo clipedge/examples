@@ -1,6 +1,6 @@
-# Linux
+# Linux 
 
-* [Commands]Commands
+* [Commands](Commands)
 
 ## Commands
 
