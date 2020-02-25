@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>St Pats Beer Exchange</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+<h1>Beer Exchange! Yea!</h1>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for beer..">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:100%;">Year/Beer</th>
+  </tr>
+
+<tr><td>2018 Atwater Bavarian Cream Vanilla Java Porter</td></tr>
+<tr><td>2014 Belfast Bay Lobster Ale</td></tr>
+<tr><td>2018 Bells Larry's Latest Sour</td></tr>
+<tr><td>2019 Bells Flamingo Fruit Fight</td></tr>
+<tr><td>2019 Bells Two Hearted</td></tr>
+<tr><td>2012 Blue Moon Brewing Blue Moon</td></tr>
+<tr><td>2013 Blue Moon Brewing Blue Moon</td></tr>
+<tr><td>2012 Blue Point Blueberry Ale</td></tr>
+<tr><td>2012 Boxcar Brown Ale</td></tr>
+<tr><td>2015 Breckenridge Ophelia Hoppy Wheat</td></tr>
+<tr><td>2017 Brooklyn Pilsner</td></tr>
+<tr><td>2015 Captain Lawrence Brewing Captain's Kolsch</td></tr>
+<tr><td>2014 Cigar City Jose Marti</td></tr>
+<tr><td>2019 Crooked Stave Coffee Baltic Porter</td></tr>
+<tr><td>2014 Dark Horse Reserve Special Black</td></tr>
+<tr><td>2014 Dark Horse Scotty Karate</td></tr>
+<tr><td>2015 Deschutes Chain Breaker</td></tr>
+<tr><td>2016 Devil's Backbone Cran Gose</td></tr>
+<tr><td>2016 Dogfish Head Beer to Drink Music To</td></tr>
+<tr><td>2016 Dogfish Head Romantic Chemistry</td></tr>
+<tr><td>2019 Dogfish Head The Perfect Disguise</td></tr>
+<tr><td>2014 Duclaw Serum</td></tr>
+<tr><td>2015 Duclaw Dirty Little Freak</td></tr>
+<tr><td>2017 DuClaw Hell on Wood</td></tr>
+<tr><td>2019 Elysian Space Dust</td></tr>
+<tr><td>2017 Evil Genius Han Shot First</td></tr>
+<tr><td>2017 Evil Genius I'll Have What She is Having</td></tr>
+<tr><td>2019 Evolution Number 6</td></tr>
+<tr><td>2016 Flying Dog Double Dog</td></tr>
+<tr><td>2016 Flying Dog Tropical Bitch</td></tr>
+<tr><td>2017 Flying Dog Numero Uno</td></tr>
+<tr><td>2019 Flying Dog Bloodline</td></tr>
+<tr><td>2013 Flying FIsh Grand Cru</td></tr>
+<tr><td>2013 Flying Fish Abbey Dubble</td></tr>
+<tr><td>2018 Founders Porter</td></tr>
+<tr><td>2018 Franziskaner Weissbier</td></tr>
+<tr><td>2013 Goose Island Honkers Ale</td></tr>
+<tr><td>2014 Great Lakes Dortmunder Gold</td></tr>
+<tr><td>2015 Hardywood Singel</td></tr>
+<tr><td>2018 Headwaters Ground Score</td></tr>
+<tr><td>2016 Heretic Evil Twin</td></tr>
+<tr><td>2016 Hop City Barking Squirrel</td></tr>
+<tr><td>2014 Icelandic Toasted Porter</td></tr>
+<tr><td>2017 Innis and Gunn Original Oak Aged Beer</td></tr>
+<tr><td>2012 Kirin Kirin Ichiban</td></tr>
+<tr><td>2017 Kona Longboard</td></tr>
+<tr><td>2014 Lagunitas Maximus</td></tr>
+<tr><td>2018 Lagunitas Davey Murray's Scotch Ale</td></tr>
+<tr><td>2012 Lancaster Brewing Milk Stout</td></tr>
+<tr><td>2012 Landshark Landshark</td></tr>
+<tr><td>2012 Leffe Brown</td></tr>
+<tr><td>2012 Long Trail Double Bag</td></tr>
+<tr><td>2017 Magic Hat Number 9</td></tr>
+<tr><td>2019 Manyunk French Toast Crunch Porter</td></tr>
+<tr><td>2015 Mr. Huff Pale Ale</td></tr>
+<tr><td>2014 New Belgium Spring Blonde</td></tr>
+<tr><td>2017 New Belgium Voodoo Ranger</td></tr>
+<tr><td>2015 New Holland Mad Hatter</td></tr>
+<tr><td>2013 North Cost Brewing Pranqster</td></tr>
+<tr><td>2017 Otter Creek Over Easy</td></tr>
+<tr><td>2015 Pale Boyz Whisky Barrel Stout</td></tr>
+<tr><td>2016 Primator Maibock</td></tr>
+<tr><td>2015 Red Hook Long Hammer IPA</td></tr>
+<tr><td>2016 Rivertowne Hali Kahiki</td></tr>
+<tr><td>2018 Rivertowne Home Game</td></tr>
+<tr><td>2014 Rogue Hazlenut Brown</td></tr>
+<tr><td>2019 Rogue Dead Guy Ale</td></tr>
+<tr><td>2018 Sam Adams Rebel IPA</td></tr>
+<tr><td>2012 Saranac Variety Pack</td></tr>
+<tr><td>2015 Saucony Creek Hop Suplex</td></tr>
+<tr><td>2016 Shipyard Little Horror of Hops</td></tr>
+<tr><td><tr><td>2014 Sierra Nevada Pale Ale</td></tr>
+<tr><td>2019 Smithwicks Red Irish Ale</td></tr>
+<tr><td>2018 Stone Delicious IPA</td></tr>
+<tr><td>2013 Stoudt's Heifer in Wheat</td></tr>
+<tr><td>2013 Stoudt's Double IPA</td></tr>
+<tr><td>2015 Stoudt's Scarlett Lady</td></tr>
+<tr><td>2013 Straub Lager</td></tr>
+<tr><td>2017 Sweetwater 420 IPA</td></tr>
+<tr><td>2017 Sweetwater Grassmonkey</td></tr>
+<tr><td>2019 Sweetwater Goin' Coastal</td></tr>
+<tr><td>2012 Troegs Nugget Nectar</td></tr>
+<tr><td>2015 Tsingtao Year of the Ram</td></tr>
+<tr><td>2016 Two Roads Rye 95</td></tr>
+<tr><td>2012 Victory Headwaters</td></tr>
+<tr><td>2013 Victory Headwaters</td></tr>
+<tr><td>2018 Victory Golden Monkey</td></tr>
+<tr><td>2019 Von Trapp Weissbier</td></tr>
+<tr><td>2018 War Horse Peace Bomber</td></tr>
+<tr><td>2016 Warsteiner Roasted Barley Malt</td></tr>
+<tr><td>2013 Weihenstephaner Weissbier</td></tr>
+<tr><td>2013 Weyerbacher Merry Monks</td></tr>
+<tr><td>2018 Wychwood Hobgoblin</td></tr>
+<tr><td>2012 Yards IPA</td></tr>
+<tr><td>2013 Yards Poor Richards Spruce</td></tr>
+<tr><td>2014 Yards ESA</td></tr>
+<tr><td>2020 Danzig BigFoot</td></tr>
+<tr><td>2020 Sterling Pig Shoat Pilsner</td></tr>
+<tr><td>2020 DogFish Head American Beauty Hazy Ripple</td></tr> 
+<tr><td>2020 Heavy Seas Double Cannon Double IPA</td></tr> 
+
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
